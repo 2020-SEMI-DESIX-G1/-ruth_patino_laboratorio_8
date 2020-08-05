@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title= title
+  body
+    block content
+        h1  Crear Estudiantes
+        form(method="post")
+            label(for="nombre") Nombre: 
+            input(name="nombre", type="text")
+            br
+            label(for="edad") Edad: 
+            input(name="edad", type="text")
+            br
+            button(type="submit") Guardar
+
+        br
+        h2 Estudiantes
+        table.table
+            thead
+                tr
+                    th Nombre
+                    th Edad
+            tbody
+                each estudiante in estudiantes
+                    tr
+                        td 
+                            p(class='/estudiantes/' + estudiante._id) #{estudiante.nombre}
+                        td 
+                            p(class='/estudiantes/' + estudiante._id) #{estudiante.edad}
+                        td
+                            a(href= 'estudiantes/' + estudiante._id) Borrar y editar
